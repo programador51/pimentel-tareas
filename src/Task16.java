@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Task17 {
+public class Task16 {
 
     static int optionSelected;
     static String[] options = {"°C ➡ °F", "°F ➡ °C"};
