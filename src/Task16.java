@@ -12,7 +12,7 @@ public class Task16 {
          * 0 - °C ➡ °F
          * 1 - F ➡ °C
          */
-        optionSelected = JOptionPane.showOptionDialog(null, "Selecciona una opcion", "Conversor de temperatura", 0, 0, null, options, "Monitor");
+        optionSelected = JOptionPane.showOptionDialog(null, "Selecciona una opcion", "Conversor de temperatura", 0, 0, null, options,null);
 
         temperatureRequested = promptTemperature();
         
