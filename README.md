@@ -8,3 +8,29 @@ ejecutas el comando `java Task16` y automaticamente correra el programa.
 **NOTA:** Debes tener el `jdk`de java instalado para poder realizar esto
 
 ![example_run_code](https://res.cloudinary.com/dmtvwe2ur/image/upload/v1650510031/example_ma1u1e.png)
+
+---
+
+## Task19
+
+**Nota**: El tamaño del arreglo se hace en automatico de forma aleatoria
+
+Puede recibir argumentos en la terminal antes de ser ejecutado, un arreglo.
+
+1. `int:Número a buscar`: Número entre 1-10 ya que el arreglo genera números aleatorios dentro de ese rango
+
+**Ejemplo**
+![example_19](https://res.cloudinary.com/dmtvwe2ur/image/upload/v1650586633/19_m3hxsh.png)
+
+---
+
+## Task20
+
+**Nota**: El tamaño del arreglo se hace en automatico de forma aleatoria
+
+Puede recibir argumentos en la terminal antes de ser ejecutado, un arreglo.
+
+1. `int:Número a buscar`: Número entre 11-20 ya que el arreglo genera números aleatorios dentro de ese rango
+
+**Ejemplo**
+![example_20](https://res.cloudinary.com/dmtvwe2ur/image/upload/v1650586711/20_rfsjnu.png)
