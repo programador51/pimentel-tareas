@@ -11,6 +11,18 @@ ejecutas el comando `java Task16` y automaticamente correra el programa.
 
 ---
 
+## Task18
+
+Puede recibir argumentos en la terminal antes de ser ejecutado, un arreglo.
+
+1. `int:repeticiones`: Repeticiones que hara la serie hasta poder detenerse
+
+**Ejemplo**
+
+![example_18](https://res.cloudinary.com/dmtvwe2ur/image/upload/v1650678682/18_fxueiw.png)
+
+---
+
 ## Task19
 
 **Nota**: El tamaño del arreglo se hace en automatico de forma aleatoria
