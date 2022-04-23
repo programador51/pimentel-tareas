@@ -1,4 +1,4 @@
-public class Task21 {
+public class Task22 {
     public static void main(String[] args) {
         // 1. Request dimension for tabla A
         int[] tableADimension = requestArraySize("Tabla A");
@@ -6,49 +6,33 @@ public class Task21 {
         // 2. Request dimension for table B
         int[] tableBDimension = requestArraySize("Tabla B");
 
-        // 3. Validate are the same dimension
-        boolean areValidTableDimensions = validateTables(tableADimension[0], tableBDimension[0], tableADimension[1], tableBDimension[1]);
+        // 3. Validate tables dimension
+        boolean areValidTables = validateArrays(tableADimension[1], tableBDimension[0]);
 
-        // If not, request data again
-        if(!areValidTableDimensions){
-            cleanConsole();  
-            System.out.println("Error: Las dimensiones de Tabla A y Tabla B deben ser las mismas para poder sumar U_U");
+        // 4. Re-execute the code to re-ask the table dimensions
+        if(!areValidTables){
+            cleanConsole();
+            System.out.println("Error: Las columnas de la Tabla A son diferentes a las filas de la Tabla B. Algo valido seria [2 x 4] [4 x 3]");
             main(args);
         }
 
-        // 4. Fill table A
         int[][] tableAValues = requestArrayValues(tableADimension[0], tableADimension[1], "Tabla A");
-
-        // 5. Fill table B
         int[][] tableBValues = requestArrayValues(tableBDimension[0], tableBDimension[1], "Tabla B");
 
-        // 6. Sum the tables
-        int[][] sumTables = sumArrays(tableAValues, tableBValues);
-
-        //7. Print results
+        int[][] resultMultiplication = matrixMultiplication(tableAValues, tableBValues);
 
         cleanConsole();
 
         System.out.println("Tabla A");
         printTable(tableAValues);
-        System.out.println("-------------------------------");
-
+        System.out.println("----------------------------");
+        System.out.println("x");
+        System.out.println("----------------------------");
         System.out.println("Tabla B");
         printTable(tableBValues);
-        System.out.println("-------------------------------");
-
-        System.out.println("Tabla A + Tabla B");
-        printTable(sumTables);
-
-    }
-
-    public static void printTable(int[][] table){
-        for(int i=0;i<table.length;i++){
-            for(int j=0;j<table[0].length;j++){
-                System.out.print(table[i][j]+" ");
-            }
-            System.out.println("");
-        }
+        System.out.println("----------------------------");
+        System.out.println("=");
+        printTable(resultMultiplication);
     }
 
     public static int[][] requestArrayValues(int rows, int columns,String tableName){
@@ -63,16 +47,13 @@ public class Task21 {
         return table;
     }
 
-    public static int[][] sumArrays(int[][] arrayA , int[][] arrayB){
-        int [][] table = new int[arrayA.length][arrayA[0].length];
-
-        for(int i=0;i<arrayA.length;i++){
-            for(int j=0;j<arrayA[0].length;j++){
-                table[i][j] = arrayA[i][j] + arrayB[i][j];
+    public static void printTable(int[][] table){
+        for(int i=0;i<table.length;i++){
+            for(int j=0;j<table[0].length;j++){
+                System.out.print(table[i][j]+" ");
             }
+            System.out.println("");
         }
-        
-        return table;
     }
 
     public static int[] requestArraySize(String tableName){
@@ -97,6 +78,29 @@ public class Task21 {
             return requestArraySize(tableName);
         }
     }
+    
+    public static int[][] matrixMultiplication(int[][] tableA, int[][] tableB){
+		
+        int[][] multiplicationResult = new int[tableA.length][tableB[0].length];
+
+        // Row of table A
+		for(int i = 0; i < tableA.length; i++){
+            // Columns table B
+			for(int j = 0; j < tableB[0].length; j++){
+                // Columns tabla A
+				for(int k = 0; k <tableA[0].length; k++){
+					multiplicationResult[i][j] += tableA[i][k]*tableB[k][j];
+				}
+			}
+		}
+
+        return multiplicationResult;
+	}
+
+    public static boolean validateArrays(int columnsTableA, int rowsTableB){
+        if(columnsTableA == rowsTableB) return true;
+        return false;
+    }
 
     public static void cleanConsole(){
         System.out.print("\033[H\033[2J");  
@@ -111,10 +115,5 @@ public class Task21 {
             System.out.println("Error - Tipea solo números.");
             return requestNumber(messageRequest);
         }
-    }
-
-    public static boolean validateTables(int rowA, int rowB, int columnA , int columnB){
-        if(rowA != rowB || columnA != columnB) return false;
-        return true;
     }
 }
